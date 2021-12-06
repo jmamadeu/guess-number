@@ -11,7 +11,10 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "lint": "eslint --quiet --fix './src/**/*.{ts,tsx}'",
+    "prettier:write": "npx prettier --write src/**/*.{ts,tsx}",
+    "format": "npm run lint && npm run prettier:write"
   },
   "dependencies": {
     "expo": "~43.0.2",
