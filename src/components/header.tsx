@@ -7,14 +7,12 @@ type HeaderProps = {
   title: string;
 };
 
-export const Header = ({ title }: HeaderProps) => {
-  return (
-    <View style={styles.container}>
-      <StatusBar style="light" />
-      <Text style={styles.title}>{title}</Text>
-    </View>
-  );
-};
+export const Header = ({ title }: HeaderProps) => (
+  <View style={styles.container}>
+    <StatusBar style="light" />
+    <Text style={styles.title}>{title}</Text>
+  </View>
+);
 
 const styles = StyleSheet.create({
   container: {
