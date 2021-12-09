@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
 import {
   Alert,
@@ -12,12 +13,14 @@ import {
 import { Card } from "../components/card";
 import { Input } from "../components/input";
 import { NumberContainer } from "../components/numberContainer";
+import { PlayGameNavigationProp } from "../routes/types";
 import { theme } from "../styles/theme";
 
 export const StartGame = () => {
   const [enteredValue, setEnteredValue] = useState("");
   const [confirmed, setConfirmed] = useState(false);
   const [selectedNumber, setSelectedNumber] = useState<number>();
+  const { navigate } = useNavigation<PlayGameNavigationProp>();
 
   const handleInputChange = (value: string) =>
     setEnteredValue(value.replace(/[^0-9]/g, ""));
@@ -51,6 +54,14 @@ export const StartGame = () => {
     setEnteredValue("");
     setSelectedNumber(chosenNumber);
     Keyboard.dismiss();
+  };
+
+  const startGameHandler = () => {
+    if (!selectedNumber) return;
+
+    navigate("PlayGame", {
+      chosenNumber: selectedNumber
+    });
   };
 
   return (
@@ -87,7 +98,7 @@ export const StartGame = () => {
           <Card style={styles.summaryContainer}>
             <Text>Chosen Number</Text>
             <NumberContainer>{selectedNumber}</NumberContainer>
-            <Button title="START GAME" onPress={() => {}} />
+            <Button title="START GAME" onPress={startGameHandler} />
           </Card>
         ) : null}
       </View>

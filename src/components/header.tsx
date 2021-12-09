@@ -1,6 +1,5 @@
-import { StyleSheet, Text, View } from "react-native";
-
 import { StatusBar } from "expo-status-bar";
+import { StyleSheet, Text, View } from "react-native";
 import { theme } from "../styles/theme";
 
 type HeaderProps = {
@@ -21,10 +20,10 @@ const styles = StyleSheet.create({
     paddingTop: 36,
     backgroundColor: theme.colors.pink,
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "center"
   },
   title: {
     color: theme.colors.black,
-    fontSize: 18,
-  },
+    fontSize: 18
+  }
 });
